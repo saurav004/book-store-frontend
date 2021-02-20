@@ -1,0 +1,61 @@
+<div class="container" fxLayout="column" fxLayoutAlign="center center">
+  <div class="innerContainer" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="10px">
+    <div fxLayout="row" fxLayoutAlign="space-evenly center" fxLayoutGap="20">
+      <button class="title" (click)="isLogin=true" mat-button>LOGIN</button>
+      <button class="title" (click)="isLogin=false" mat-button>SIGNUP</button>
+    </div>
+    <form *ngIf="isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="10px" [formGroup]="loginForm"
+      (ngSubmit)="login()" novalidate autocomplete="off">
+      <mat-form-field appearance="outline">
+        <mat-label>Email Id</mat-label>
+        <input matInput type="text" id="email" autocomplete="none" name="email" placeholder="Email"
+          formControlName="email" required>
+        <mat-hint>you can use letters , numbers & periods</mat-hint>
+        <mat-error *ngIf="loginForm.get('email').invalid">enter email</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" autocomplete="off" id="password" name="password"
+          placeholder="Password" formControlName="password" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="loginForm.get('password').errors?.required">Enter Password</mat-error>
+        <mat-error *ngIf="loginForm.get('password').errors?.minlength">minimum 8 characters</mat-error>
+        <mat-error *ngIf="loginForm.get('password').errors?.maxlength">max 15 characters</mat-error>
+        <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+      </mat-form-field>
+      <button type="submit" class="submit" mat-button>Login</button>
+    </form>
+    <form *ngIf="!isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="15px" [formGroup]="signUpForm"
+      (ngSubmit)="signUp()" novalidate autocomplete="off">
+      <mat-form-field id="fullNameField" appearance="outline" class="input">
+        <mat-label>Full Name</mat-label>
+        <input matInput type="text" placeholder="Full Name" autocomplete="off" name="fullName" id="fullName"
+          formControlName="fullName" required>
+        <mat-error *ngIf="signUpForm.get('fullName').errors?.required">Enter Full Name</mat-error>
+      </mat-form-field>
+      <mat-form-field id="usernameField" appearance="outline" class="input">
+        <mat-label>Email Id</mat-label>
+        <input type="email" id="email" autocomplete="off" formControlName="email" name="email" matInput
+          placeholder="Enter your email" required>
+        <mat-error *ngIf="signUpForm.get('email').invalid">enter email</mat-error>
+        <mat-hint>you can use letters , numbers & periods</mat-hint>
+      </mat-form-field>
+      <mat-form-field id="passwordField" appearance="outline" class="input">
+        <mat-label>Password</mat-label>
+        <input [type]="hide ? 'password' : 'text'" id="password" autocomplete="off" formControlName="password"
+          name="password" matInput placeholder="Password" required>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error *ngIf="signUpForm.get('password').invalid">Enter password</mat-error>
+        <mat-hint>Use 8 or more characters with a mix of letters, numbers & symbols</mat-hint>
+      </mat-form-field>
+      <mat-form-field id="mobileNumber" appearance="outline" class="input">
+        <mat-label>Mobile Number</mat-label>
+        <input type="text" id="mobile" formControlName="mobileNumber" autocomplete="off" name="mobileNumber" matInput
+          placeholder="Mobile Number" required>
+        <mat-error *ngIf="signUpForm.get('mobileNumber').errors?.required">Enter Mobile Number</mat-error>
+        <mat-error *ngIf="loginForm.get('password').errors?.pattern">example: +91 9999999999</mat-error>
+      </mat-form-field>
+      <button mat-raised-button type="submit" class="submit" mat-button>SignUp</button>
+    </form>
+  </div>
+</div>
