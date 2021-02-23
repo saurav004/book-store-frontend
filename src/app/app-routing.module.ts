@@ -1,9 +1,12 @@
-import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginSignUpComponent } from './loginSignUp/loginSignUp.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.component';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+
 
 const routes: Routes = [
     { path: 'login_signup', component: LoginSignUpComponent },
+    { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({

@@ -1,21 +1,42 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginSignUpComponent } from './loginSignUp/loginSignUp.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatNativeDateModule, MatDatepickerModule, MatTooltipModule, MatListModule, MatSidenavModule, MatMenuModule, MatToolbarModule, MatSnackBarModule, MatInputModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatCardModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
+import {
+  MatNativeDateModule,
+  MatDatepickerModule,
+  MatTooltipModule,
+  MatListModule,
+  MatSidenavModule,
+  MatMenuModule,
+  MatToolbarModule,
+  MatSnackBarModule,
+  MatInputModule,
+  MatButtonModule,
+  MatIconModule,
+  MatFormFieldModule,
+  MatCardModule,
+  MatCheckboxModule,
+  MatDialogModule
+} from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpService } from './services/http.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeaderComponent } from './components/header/header.component';
+import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginSignUpComponent
+    LoginSignUpComponent,
+    DashboardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +63,7 @@ import { HttpService } from './services/http.service';
     AppRoutingModule,
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
 })
 export class AppModule { }

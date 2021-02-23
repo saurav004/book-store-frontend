@@ -12,11 +12,11 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
-  public postRequest(url: any, data: any): any {
+  public postRequest(url: any, data: any): Observable<any> {
     return this.http.post(this.baseUrl + url, data);
   }
 
-  public deleteRequest(url: any): any {
+  public deleteRequest(url: any): Observable<any> {
     return this.http.delete(this.baseUrl + url);
   }
 
@@ -24,7 +24,7 @@ export class HttpService {
     return this.http.get(this.baseUrl + url);
   }
 
-  public putRequest(url, data) {
+  public putRequest(url, data): Observable<any> {
     return this.http.put(this.baseUrl + url, data);
   }
 
