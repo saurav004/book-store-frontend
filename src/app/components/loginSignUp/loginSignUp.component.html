@@ -4,8 +4,8 @@
       <button class="title" (click)="isLogin=true" mat-button>LOGIN</button>
       <button class="title" (click)="isLogin=false" mat-button>SIGNUP</button>
     </div>
-    <form *ngIf="isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="10px" [formGroup]="loginForm"
-      (ngSubmit)="login()" novalidate autocomplete="off">
+    <form id="loginFormId" *ngIf="isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="10px"
+      [formGroup]="loginForm" (ngSubmit)="login()" novalidate autocomplete="off">
       <mat-form-field appearance="outline">
         <mat-label>Email Id</mat-label>
         <input matInput type="text" id="email" autocomplete="none" name="email" placeholder="Email"
@@ -22,8 +22,8 @@
       </mat-form-field>
       <button type="submit" class="submit" mat-button>Login</button>
     </form>
-    <form *ngIf="!isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="15px" [formGroup]="signUpForm"
-      (ngSubmit)="signUp()" novalidate autocomplete="off">
+    <form id="signUpFormId" *ngIf="!isLogin" fxLayout="column" fxLayoutAlign="space-evenly" fxLayoutGap="15px"
+      [formGroup]="signUpForm" (ngSubmit)="signUp()" novalidate autocomplete="off">
       <mat-form-field id="fullNameField" appearance="outline" class="input">
         <mat-label>Full Name</mat-label>
         <input matInput type="text" placeholder="Full Name" autocomplete="off" name="fullName" id="fullName"

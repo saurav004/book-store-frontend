@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
@@ -14,9 +15,8 @@ export class LoginSignUpComponent implements OnInit {
   hide = true;
   signUpForm: FormGroup;
   isLogin = true;
-  state = 0;
 
-  constructor(private fb: FormBuilder, private router: Router, private _snackBar: MatSnackBar, private httpService: HttpService) {
+  constructor(private fb: FormBuilder, private authService: AuthenticationService, private router: Router, private _snackBar: MatSnackBar, private httpService: HttpService) {
 
   }
 
@@ -45,13 +45,12 @@ export class LoginSignUpComponent implements OnInit {
       password: this.loginForm.value["password"],
     }
     if (!this.loginForm.invalid) {
-      this.httpService.postRequest('auth/login/', loginObject).subscribe((response: any) => {
+      this.authService.login(loginObject).subscribe((response: any) => {
+        debugger
         if (response) {
           this._snackBar.open("logged in sucessfully ", "close", { duration: 2000 });
-          localStorage.setItem('accessToken', response.tokens.access)
-          localStorage.setItem('refreshToken', response.tokens.refresh)
-          console.log(localStorage.getItem('accessToken'))
-          console.log(localStorage.getItem('refresh'))
+          localStorage.setItem('accessToken', response.token)
+          this.loginForm.reset();
           this.router.navigate(['/dashboard/']);
         }
         if (response.errors) {
@@ -71,7 +70,7 @@ export class LoginSignUpComponent implements OnInit {
       password: this.signUpForm.value["password"],
     }
     if (!this.signUpForm.invalid) {
-      this.httpService.postRequest('auth/register/', signUpObject).subscribe((response: any) => {
+      this.authService.register(signUpObject).subscribe((response: any) => {
         if (response.data) {
           this._snackBar.open("SignUp Successfull", "close", { duration: 2000 });
           this.signUpForm.reset();
@@ -85,8 +84,5 @@ export class LoginSignUpComponent implements OnInit {
       })
     }
   }
-
-
-
 
 }

@@ -1,0 +1,15 @@
+ .outerContainer {
+   margin: 0;
+   padding: 0;
+ }
+
+ .innerContainer {
+   .card {
+     background-color: #F5F5F5;
+     width: 200px;
+     height: 250px;
+     margin: 16px;
+     padding: 0;
+     border-radius: 12px;
+   }
+ }

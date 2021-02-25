@@ -1,6 +1,34 @@
 # BookStoreFrontend
 
+The project is an online store for books.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.6.
+
+
+### Prerequisites
+
+```
+Install Angular Cli if you haven't already.
+```
+
+## Getting Started
+
+1. Clone this repository on your machine,
+run this command in your directory 
+```
+git clone https://github.com/saurav004/book-store-frontend.git 
+```
+2. go inside project directory
+```
+cd book-store-frontend
+``` 
+3. to install all the dependencies run
+```
+npm install
+```
+4. go to the environment file and change server endpoints if needed to change.
+
+5. run the project by `ng serve`
 
 ## Development server
 
@@ -22,6 +50,6 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
+## Authors
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+* **Kumar Saurav** - (https://github.com/saurav004)

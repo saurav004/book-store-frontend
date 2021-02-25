@@ -1,10 +1,17 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { BrowserModule, By } from '@angular/platform-browser';
 import { CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
 import { LoginSignUpComponent } from './loginSignUp.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { HeaderComponent } from '../header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatMenuModule, MatTooltipModule, MatListModule, MatSidenavModule, MatToolbarModule, MatSnackBarModule, MatInputModule, MatButtonModule, MatIconModule, MatFormFieldModule, MatCardModule, MatCheckboxModule, MatDialogModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 describe('LoginSignUpComponent', () => {
   let component: LoginSignUpComponent;
@@ -18,6 +25,28 @@ describe('LoginSignUpComponent', () => {
         HeaderComponent,
         DashboardComponent,
       ],
+      imports: [
+        RouterTestingModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatMenuModule,
+        MatTooltipModule,
+        MatListModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatSnackBarModule,
+        HttpClientModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        MatInputModule,
+        MatButtonModule,
+        MatIconModule,
+        MatFormFieldModule,
+        MatCardModule,
+        MatCheckboxModule,
+        AppRoutingModule,
+        MatDialogModule],
       schemas: [
         CUSTOM_ELEMENTS_SCHEMA
       ],
@@ -28,7 +57,7 @@ describe('LoginSignUpComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LoginSignUpComponent);
     component = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css("form"));
+    de = fixture.debugElement.query(By.css('form'));
     el = de.nativeElement;
     fixture.detectChanges();
   });
@@ -65,7 +94,7 @@ describe('LoginSignUpComponent', () => {
     expect(password.errors).toBeNull();
   })
 
-  it('should check users firstName is invalid', () => {
+  it('should check users fullName is invalid', () => {
     let fullName = component.signUpForm.controls['fullName'];
     expect(fullName.valid).toBeFalsy();
     expect(fullName.pristine).toBeTruthy();
@@ -73,7 +102,7 @@ describe('LoginSignUpComponent', () => {
     fullName.setValue('abc');
   })
 
-  it('should check valid firstName is entered', () => {
+  it('should check valid fullName is entered', () => {
     let fullName = component.signUpForm.controls['fullName'];
     fullName.setValue('fullName');
     expect(fullName.errors).toBeNull();

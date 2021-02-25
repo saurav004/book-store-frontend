@@ -27,6 +27,8 @@ import { HttpService } from './services/http.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { ViewBookComponent } from './components/viewBook/viewBook.component';
 
 
 
@@ -36,10 +38,12 @@ import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.compo
     AppComponent,
     LoginSignUpComponent,
     DashboardComponent,
-    HeaderComponent
+    HeaderComponent,
+    ViewBookComponent,
   ],
   imports: [
     BrowserModule,
+    RouterTestingModule,
     MatNativeDateModule,
     MatDatepickerModule,
     MatTooltipModule,
