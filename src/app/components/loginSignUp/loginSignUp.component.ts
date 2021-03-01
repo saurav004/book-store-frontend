@@ -1,10 +1,9 @@
 import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatFormFieldModule } from '@angular/material';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
-
 @Component({
   selector: 'app-loginSignUp',
   templateUrl: './loginSignUp.component.html',
@@ -46,18 +45,19 @@ export class LoginSignUpComponent implements OnInit {
     }
     if (!this.loginForm.invalid) {
       this.authService.login(loginObject).subscribe((response: any) => {
-        debugger
         if (response) {
+          console.log(response.headers.get('Authorization'));
           this._snackBar.open("logged in sucessfully ", "close", { duration: 2000 });
-          localStorage.setItem('accessToken', response.token)
+          localStorage.setItem('accessToken',response.headers.get('Authorization'));
+          console.log(localStorage.getItem('accessToken'));
           this.loginForm.reset();
           this.router.navigate(['/dashboard/']);
         }
         if (response.errors) {
-          this._snackBar.open("Login failed", "close", { duration: 2000 })
+          this._snackBar.open("Login failed", "close", { duration: 2000 });
         }
       }, error => {
-        this._snackBar.open("Login failed", "close", { duration: 2000 })
+        this._snackBar.open("Login failed", "close", { duration: 2000 });
       })
     }
   }

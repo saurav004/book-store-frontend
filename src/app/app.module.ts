@@ -29,6 +29,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { ViewBookComponent } from './components/viewBook/viewBook.component';
+import { ForgotPasswordComponent } from './components/forgotPassword/forgotPassword.component';
 
 
 
@@ -40,6 +41,7 @@ import { ViewBookComponent } from './components/viewBook/viewBook.component';
     DashboardComponent,
     HeaderComponent,
     ViewBookComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,

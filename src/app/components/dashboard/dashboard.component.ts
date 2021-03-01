@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   constructor() { }
-
+  fieldsOnToolBar =  ['book', 'title', 'search', 'profile' ,'cart' ];
   ngOnInit() {
   }
 

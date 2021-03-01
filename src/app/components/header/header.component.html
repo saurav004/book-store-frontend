@@ -1,14 +1,14 @@
 <mat-toolbar>
-  <div fxLayout="row" fxFlex fxLayoutAlign="space-around center" fxLayoutGap=25px>
+  <div fxLayout="row" fxFlex fxLayoutAlign="space-between center" fxFlexOffset="20px" fxLayoutGap=25px>
     <div fxLayout="row" fxLayoutGap=15px fxLayoutAlign="space-around center" >
-      <div>
+      <div *ngIf="fieldsOnToolBar.includes('book')">
         <img height="45" width="45" src="../../../assets/education.svg">
       </div>
-      <div>
+      <div *ngIf="fieldsOnToolBar.includes('title')">
         <h2 id="title">{{appName}}</h2>
       </div>
     </div>
-    <form fxFlex=55 fxFlex.sm=75 fxFlex.md=75 fxFlex.xs=75 fxFlexOffset=6% fxLayoutAlign="center">
+    <form *ngIf="fieldsOnToolBar.includes('search')" fxFlex=55 fxFlex.sm=75 fxFlex.md=75 fxFlex.xs=75 fxFlexOffset=6% fxLayoutAlign="center">
       <mat-form-field class="search" appearance="outline" fxFlex=100>
         <button mat-icon-button class="search-button">
           <mat-icon matTooltip="Search" class="search-button-icon">search</mat-icon>
@@ -21,8 +21,8 @@
       </mat-form-field>
     </form>
     <div fxLayout="row" fxLayoutGap="20px">
-      <img style="width:30px;height:30px;" src="../../assets/outline_person_outline_white_24dp.png">
-      <img style="width:30px;height:30px;" src="../../assets/outline_shopping_cart_white_24dp.png">
+      <img *ngIf="fieldsOnToolBar.includes('profile')" style="width:30px;height:30px;" src="../../assets/outline_person_outline_white_24dp.png">
+      <img *ngIf="fieldsOnToolBar.includes('cart')" style="width:30px;height:30px;" src="../../assets/outline_shopping_cart_white_24dp.png">
     </div>
   </div>
 </mat-toolbar>

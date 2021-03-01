@@ -11,11 +11,12 @@ export class AuthenticationService {
   constructor(private httpService: HttpService) { }
 
   login(data: any): Observable<any> {
-    return this.httpService.postRequest(this.basePointForAuth + "/login/", data)
+
+    return this.httpService.post(this.basePointForAuth + "/login/", data)
   }
 
   register(data: any): Observable<any> {
-    return this.httpService.postRequest(this.basePointForAuth + "/register/", data)
+    return this.httpService.post(this.basePointForAuth + "/register/", data)
   }
 
 }
