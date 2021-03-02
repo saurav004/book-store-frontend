@@ -19,4 +19,11 @@ export class AuthenticationService {
     return this.httpService.post(this.basePointForAuth + "/register/", data)
   }
 
+  sendResetPasswordLink(data: any): Observable<any> {
+    return this.httpService.post(this.basePointForAuth + "/reset_password/", data)
+  }
+
+  resetPassword(data: any): Observable<any> {
+    return this.httpService.postWithToken(this.basePointForAuth + "/new_password/", data)
+  }
 }

@@ -46,10 +46,8 @@ export class LoginSignUpComponent implements OnInit {
     if (!this.loginForm.invalid) {
       this.authService.login(loginObject).subscribe((response: any) => {
         if (response) {
-          console.log(response.headers.get('Authorization'));
           this._snackBar.open("logged in sucessfully ", "close", { duration: 2000 });
           localStorage.setItem('accessToken',response.headers.get('Authorization'));
-          console.log(localStorage.getItem('accessToken'));
           this.loginForm.reset();
           this.router.navigate(['/dashboard/']);
         }

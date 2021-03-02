@@ -30,6 +30,7 @@ import { LoginSignUpComponent } from './components/loginSignUp/loginSignUp.compo
 import { RouterTestingModule } from '@angular/router/testing';
 import { ViewBookComponent } from './components/viewBook/viewBook.component';
 import { ForgotPasswordComponent } from './components/forgotPassword/forgotPassword.component';
+import { ResetPasswordComponent } from './components/resetPassword/resetPassword.component';
 
 
 
@@ -42,6 +43,8 @@ import { ForgotPasswordComponent } from './components/forgotPassword/forgotPassw
     HeaderComponent,
     ViewBookComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
+
   ],
   imports: [
     BrowserModule,
